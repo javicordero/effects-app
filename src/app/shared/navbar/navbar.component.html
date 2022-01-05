@@ -1,0 +1,20 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink='home' routerLinkActive="active" >effects</a>  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink='home'  routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" routerLink="usuario" routerLinkActive="active">Usuario</a>
+          </li>
+        </ul>
+
+        <form class="d-flex" [formGroup]="formulario" (ngSubmit)="irUsuario()">
+          <input formControlName="txtInput" class="form-control me-2" type="search" placeholder="ID Usuario" aria-label="Search" >
+          <button type="submit" class="btn btn-outline-success" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
