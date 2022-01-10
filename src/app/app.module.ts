@@ -7,6 +7,13 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { UsuariosModule } from './usuarios/usuarios.module';
 
+import { appReducer } from './store/app.reducer';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {EffectsModule} from '@ngrx/effects'
+import { environment } from '../environments/environment'; 
+import { EffectsArray } from './store/effects';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -16,8 +23,14 @@ import { UsuariosModule } from './usuarios/usuarios.module';
     AppRoutingModule,
     SharedModule,
     UsuariosModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    StoreModule.forRoot(appReducer),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production, 
+    }),
+    EffectsModule.forRoot(EffectsArray)
+  ], 
   providers: [],
   bootstrap: [AppComponent]
 })

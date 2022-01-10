@@ -19,4 +19,13 @@ export class UsuarioService {
         })
       );
   }
+
+  getUserById(id: string) {
+    return this.http.get(`${this.baseUrl}/users/${id}`)
+      .pipe(
+        map( (resp: any) => {
+          return resp['data'];
+        })
+      );
+  }
 }

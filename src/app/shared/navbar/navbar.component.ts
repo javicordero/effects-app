@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit{
     } 
 
     this.router.navigate(['usuario/', this.formulario.get('txtInput')?.value])
-    this.formulario.get('txtInput')?.reset()
+  //  this.formulario.get('txtInput')?.reset()
   }
 
 
